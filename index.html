@@ -101,6 +101,7 @@
 				min-height: 350px;
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 				transform-style: preserve-3d;
+				border: 1px solid black !important;
 			}
 
 			.service-card:hover {
@@ -187,6 +188,10 @@
 
 			.navbar-custom.scrolled .navbar-text a {
 				border: 2px solid #212529 !important;
+			}
+
+			.card-img-top {
+				border-bottom: 1px solid black !important;
 			}
 
 			@keyframes fadeSlideInRight {
@@ -340,7 +345,7 @@
 				<h2 class="text-center mb-5">W czym pomagam?</h2>
 				<div class="row py-2 g-4">
 					<div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-						<div class="card h-100 border-0 shadow-sm service-card">
+						<div class="card h-100 border-0 shadow-md service-card">
 							<img
 								src="ti.jpg"
 								class="card-img-top"
@@ -361,7 +366,7 @@
 						data-aos="fade-up"
 						data-aos-delay="100"
 					>
-						<div class="card h-100 border-0 shadow-sm service-card">
+						<div class="card h-100 border-0 shadow-md service-card">
 							<img
 								src="tp.jpg"
 								class="card-img-top"
@@ -382,7 +387,7 @@
 						data-aos="fade-up"
 						data-aos-delay="200"
 					>
-						<div class="card h-100 border-0 shadow-sm service-card">
+						<div class="card h-100 border-0 shadow-md service-card">
 							<img
 								src="td.png"
 								class="card-img-top"
@@ -474,7 +479,6 @@
 				<div class="row g-4">
 					<!-- DANE KONTAKTOWE -->
 					<div class="col-md-6 kontakt-info">
-						<h4 style="margin-bottom: 2rem">Dane kontaktowe</h4>
 						<p class="mb-2">
 							<strong>Poradnia Psychologiczna</strong><br />
 							ul. Przykładowa 15<br />
@@ -497,7 +501,6 @@
 
 					<!-- MAPA GOOGLE -->
 					<div class="col-md-6">
-						<h4>Znajdź nas na mapie</h4>
 						<div class="ratio ratio-4x3 rounded shadow">
 							<iframe
 								src="https://www.google.com/maps?q=Wysoka%20Brama,%20Olsztyn&output=embed"
