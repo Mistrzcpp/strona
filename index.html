@@ -1,587 +1,1161 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Terapia - Nie jesteś sam</title>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-			rel="stylesheet"
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terapia - Nie jesteś sam</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-		<!-- Bootstrap 5 -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-		<!-- AOS (Animate on Scroll) -->
-		<link
-			href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-			rel="stylesheet"
-		/>
+    <!-- AOS (Animate on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call"
-		/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=call"
+    />
+    <link rel="icon" href="./rsc/icon.ico" />
 
-		<style>
-			body {
-				font-family: "Lato";
-			}
+    <style>
+      body {
+        font-family: "Lato";
+      }
 
-			/* Stylizacja nagłówka */
-			.navbar-custom {
-				background-color: rgba(255, 255, 255, 0);
-				backdrop-filter: blur(10px);
-				font-size: larger;
-			}
-			.navbar-custom .navbar-nav .nav-link {
-				font-size: 1.2rem !important;
-				padding-left: 1.5rem !important;
-				padding-right: 1.5rem !important;
-				letter-spacing: 0.5px !important;
-				color: white !important;
-			}
+      /* Stylizacja nagłówka */
+      .navbar-custom {
+        background-color: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(10px);
+        font-size: larger;
+      }
+      .navbar-custom .navbar-nav .nav-link {
+        font-size: 1.2rem !important;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        letter-spacing: 0.5px !important;
+        color: white !important;
+      }
 
-			/* Błękitny gradient w hero */
-			.hero-section {
-				height: 100vh;
-				background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 80%);
-				color: white;
-				display: flex;
-				align-items: center;
-				padding-left: 10%;
-				opacity: 0;
-				transform: translateY(30px);
-				animation: fadeSlideIn 1.2s ease-out forwards;
-				animation-delay: 0.3s;
-			}
+      /* Błękitny gradient w hero */
+      .hero-section {
+        height: 100vh;
+        background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 80%);
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 10%;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeSlideIn 1.2s ease-out forwards;
+        animation-delay: 0.3s;
+      }
 
-			.hero-text {
-				font-size: 2.5rem;
-				font-weight: bold;
-				max-width: 600px;
-			}
+      .hero-text {
+        font-size: 2.5rem;
+        font-weight: bold;
+        max-width: 600px;
+      }
 
-			/* Sekcja "O mnie" */
-			#o-mnie {
-				padding: 80px 20px;
-				background-color: white;
-			}
+      /* Sekcja "O mnie" */
+      #o-mnie {
+        padding: 80px 20px;
+        background-color: white;
+      }
 
-			#o-mnie h2 {
-				margin-bottom: 30px;
-			}
+      #o-mnie h2 {
+        margin-bottom: 30px;
+      }
 
-			.about-text {
-				font-size: 1.1rem;
-				line-height: 1.7;
-			}
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
 
-			html {
-				scroll-behavior: smooth;
-			}
+      html {
+        scroll-behavior: smooth;
+      }
 
-			.service-card {
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
+      .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-			.service-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-			}
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
 
-			.row {
-				overflow: hidden;
-			}
+      .row {
+        overflow: hidden;
+      }
 
-			.service-card {
-				min-height: 350px;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-				transform-style: preserve-3d;
-				border: 1px solid black !important;
-			}
+      .service-card {
+        min-height: 350px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transform-style: preserve-3d;
+        border: 1px solid black !important;
+      }
 
-			.service-card:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-			}
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
 
-			.hero-section {
-				height: 100vh;
-				background: linear-gradient(0deg, #89f7fe 0%, #66a6ff 80%);
-				color: white;
-				display: flex;
-				align-items: center;
-				padding-left: 10%;
-				padding-right: 10%;
-			}
+      .hero-section {
+        height: 100vh;
+        background: linear-gradient(0deg, #89f7fe 0%, #66a6ff 80%);
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 10%;
+        padding-right: 10%;
+      }
 
-			.hero-text {
-				font-size: 2.2rem; /* wcześniej 2.5rem, ale można dać więcej lub mniej */
-				font-weight: 700;
-				line-height: 1.4;
-				color: white;
-				max-width: 700px;
-				opacity: 0;
-				transform: translateY(30px);
-				animation: fadeSlideIn 1.2s ease-out forwards;
-				animation-delay: 0.3s;
-			}
+      .hero-text {
+        font-size: 2.2rem; /* wcześniej 2.5rem, ale można dać więcej lub mniej */
+        font-weight: 700;
+        line-height: 1.4;
+        color: white;
+        max-width: 700px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeSlideIn 1.2s ease-out forwards;
+        animation-delay: 0.3s;
+      }
 
-			.hero-text .btn {
-				margin-top: 1.5rem;
-			}
-			.hero-text-background {
-				background-color: white;
-				padding: 30px;
-				color: #212529;
-			}
+      .hero-text .btn {
+        margin-top: 1.5rem;
+      }
+      .hero-text-background {
+        background-color: white;
+        padding: 30px;
+        color: #212529;
+      }
 
-			.kontakt-info {
-				font-size: 1.2rem;
-				line-height: 1.8;
-			}
-			.btn-elegant {
-				background-color: #ffffff;
-				color: #212529;
-				border: 1.5px solid #dee2e6;
-				padding: 0.75rem 1.5rem;
-				font-size: 1.1rem;
-				font-weight: 600;
-				border-radius: 8px;
-				transition: all 0.3s ease;
-				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-			}
+      .kontakt-info {
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+      .btn-elegant {
+        background-color: #ffffff;
+        color: #212529;
+        border: 1.5px solid #dee2e6;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
 
-			.btn-elegant:hover {
-				background-color: #f1f3f5;
-				color: #212529;
-				box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-				text-decoration: none;
-			}
+      .btn-elegant:hover {
+        background-color: #f1f3f5;
+        color: #212529;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+      }
 
-			#salonCarousel .carousel-item img {
-				max-height: 650px;
-				object-fit: cover;
-				width: 80%;
-			}
-			/* === NAVBAR NA GÓRZE (np. na hero): biały tekst i ramka === */
-			.navbar-custom.navbar-top .nav-link,
-			.navbar-custom.navbar-top .navbar-brand,
-			.navbar-custom.navbar-top .navbar-text a {
-				color: white !important;
-			}
+      #salonCarousel .carousel-item img {
+        max-height: 650px;
+        object-fit: cover;
+        width: 80%;
+      }
+      /* === NAVBAR NA GÓRZE (np. na hero): biały tekst i ramka === */
+      .navbar-custom.navbar-top .nav-link,
+      .navbar-custom.navbar-top .navbar-brand,
+      .navbar-custom.navbar-top .navbar-text a {
+        color: white !important;
+      }
 
-			.navbar-custom.navbar-top .navbar-text a {
-				border: 2px solid white !important;
-			}
+      .navbar-custom.navbar-top .navbar-text a {
+        border: 2px solid white !important;
+      }
 
-			/* === NAVBAR PO SCROLLU: ciemny tekst i ramka === */
-			.navbar-custom.scrolled .nav-link,
-			.navbar-custom.scrolled .navbar-brand,
-			.navbar-custom.scrolled .navbar-text a {
-				color: #212529 !important;
-			}
+      /* === NAVBAR PO SCROLLU: ciemny tekst i ramka === */
+      .navbar-custom.scrolled .nav-link,
+      .navbar-custom.scrolled .navbar-brand,
+      .navbar-custom.scrolled .navbar-text a {
+        color: #212529 !important;
+      }
 
-			.navbar-custom.scrolled .navbar-text a {
-				border: 2px solid #212529 !important;
-			}
+      .navbar-custom.scrolled .navbar-text a {
+        border: 2px solid #212529 !important;
+      }
 
-			.card-img-top {
-				border-bottom: 1px solid black !important;
-			}
+      .card-img-top {
+        border-bottom: 1px solid black !important;
+      }
 
-			@keyframes fadeSlideInRight {
-				to {
-					opacity: 1;
-					transform: translateX(0);
-				}
-			}
+      .card-body {
+        text-align: center;
+      }
+      .card-title {
+        font-size: 1.3em !important;
+      }
+      @keyframes fadeSlideInRight {
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-			/* Animacja dla hero section */
-			@keyframes fadeSlideIn {
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
+      /* Animacja dla hero section */
+      @keyframes fadeSlideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-			@media (max-width: 768px) {
-				.hero-text {
-					font-size: 1.8rem;
-				}
-			}
+      @media (max-width: 768px) {
+        .hero-text {
+          font-size: 1.8rem;
+        }
+      }
 
-			@media (max-width: 768px) {
-				.hero-section {
-					flex-direction: column;
-					padding-left: 5%;
-					padding-right: 5%;
-					padding-top: 80px;
-					align-items: center;
-					text-align: center;
-				}
+      @media (max-width: 768px) {
+        .hero-section {
+          flex-direction: column;
+          padding-left: 5%;
+          padding-right: 5%;
+          padding-top: 80px;
+          align-items: center;
+          text-align: center;
+        }
 
-				.img-fluid {
-					max-width: 90%; /* zdjęcie trochę mniejsze */
-					margin-top: 10px;
-					margin-bottom: 30px;
-					opacity: 1 !important;
-					transform: translateX(0) !important;
-					animation: none !important;
-				}
+        .img-fluid {
+          max-width: 90%; /* zdjęcie trochę mniejsze */
+          margin-top: 10px;
+          margin-bottom: 30px;
+          opacity: 1 !important;
+          transform: translateX(0) !important;
+          animation: none !important;
+        }
 
-				.hero-text {
-					font-size: 1.8rem;
-					max-width: 100%;
-					margin-top: 40px;
-				}
+        .hero-text {
+          font-size: 1.8rem;
+          max-width: 100%;
+          margin-top: 40px;
+        }
 
-				/* Mniejsza czcionka w kontakcie */
-				.kontakt-info {
-					font-size: 0.95rem;
-					text-align: center;
-				}
+        /* Mniejsza czcionka w kontakcie */
+        .kontakt-info {
+          font-size: 0.95rem;
+          text-align: center;
+        }
 
-				.kontakt-info a {
-					font-size: 0.95rem;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<!-- Header -->
-		<nav class="navbar navbar-expand-lg fixed-top navbar-custom">
-			<div class="container-fluid justify-content-between">
-				<!-- Logo -->
-				<a
-					class="navbar-brand text-dark fw-bold"
-					href="https://mistrzcpp.github.io/strona/index.html"
-					>TerapiaLogo</a
-				>
+        .kontakt-info a {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+      <div class="container-fluid justify-content-between">
+        <!-- Logo -->
+        <a
+          class="navbar-brand text-dark fw-bold"
+          href="https://mistrzcpp.github.io/strona/index.html"
+          ><img src="./icons/logo_icon_big.png" width="60px"
+        /></a>
 
-				<!-- Hamburger -->
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
+        <!-- Hamburger -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<!-- Nawigacja -->
-				<div
-					class="collapse navbar-collapse justify-content-end"
-					id="navbarNav"
-				>
-					<ul class="navbar-nav">
-						<li class="nav-item mx-3">
-							<a class="nav-link text-dark" href="#o-mnie"
-								>O mnie</a
-							>
-						</li>
-						<li class="nav-item mx-3">
-							<a class="nav-link text-dark" href="#uslugi"
-								>Usługi</a
-							>
-						</li>
-						<li class="nav-item mx-3">
-							<a class="nav-link text-dark" href="#salon"
-								>Salon</a
-							>
-						</li>
-						<li class="nav-item mx-3">
-							<a class="nav-link text-dark" href="#kontakt"
-								>Kontakt</a
-							>
-						</li>
-					</ul>
+        <!-- Nawigacja -->
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item mx-3">
+              <a class="nav-link text-dark" href="#o-mnie">O mnie</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link text-dark" href="#uslugi">Usługi</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link text-dark" href="#salon">Salon</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link text-dark" href="#kontakt">Kontakt</a>
+            </li>
+          </ul>
 
-					<!-- Numer telefonu -->
-					<span class="navbar-text ms-3 d-none d-lg-inline">
-						<a
-							href="tel:+48123456789"
-							class="border rounded px-3 py-1 text-decoration-none fw-bold"
-						>
-							<span
-								class="material-symbols-outlined me-1"
-								style="font-size: 1em; vertical-align: middle"
-							>
-								call
-							</span>
-							123 456 789
-						</a>
-					</span>
-				</div>
-			</div>
-		</nav>
+          <!-- Numer telefonu -->
+          <span class="navbar-text ms-3 d-none d-lg-inline">
+            <a
+              href="tel:+48503685327"
+              class="border rounded px-3 py-1 text-decoration-none fw-bold"
+            >
+              <span
+                class="material-symbols-outlined me-1"
+                style="font-size: 1em; vertical-align: middle"
+              >
+                call
+              </span>
+              503 685 327
+            </a>
+          </span>
+        </div>
+      </div>
+    </nav>
 
-		<!-- Hero Section -->
-		<section
-			class="hero-section d-flex justify-content-between align-items-center px-5"
-		>
-			<div class="hero-text" style="flex: 1; max-width: 700px">
-				<h1>
-					Odzyskaj spokój i równowagę.<br />
-					Psychoterapia to bezpieczna przestrzeń dla Ciebie.
-				</h1>
-				<a href="#o-mnie" class="btn btn-elegant mt-4"
-					>Dowiedz się więcej</a
-				>
-			</div>
-			<div
-				class="hero-image"
-				style="
-					flex: 1;
-					max-width: 600px;
-					opacity: 0;
-					transform: translateX(30px);
-					animation: fadeSlideInRight 1.2s ease-out forwards;
-					animation-delay: 0.6s;
-				"
-			>
-				<img src="mak.png" alt="Terapia - wsparcie" class="img-fluid" />
-			</div>
-		</section>
+    <!-- Hero Section -->
+    <section
+      class="hero-section d-flex justify-content-between align-items-center px-5"
+    >
+      <div class="hero-text" style="flex: 1; max-width: 700px">
+        <h1>
+          Zrozumienie to pierwszy krok do zmiany. <br />
+          Tu możesz być sobą — bez oceny, bez pośpiechu
+        </h1>
+        <a href="#o-mnie" class="btn btn-elegant mt-4">Dowiedz się więcej</a>
+      </div>
+      <div
+        class="hero-image"
+        style="
+          flex: 1;
+          max-width: 600px;
+          opacity: 0;
+          transform: translateX(30px);
+          animation: fadeSlideInRight 1.2s ease-out forwards;
+          animation-delay: 0.6s;
+        "
+      >
+        <img src="./rsc/logo2.png" alt="Terapia - wsparcie" class="img-fluid" />
+      </div>
+    </section>
 
-		<!-- Sekcja "O mnie" -->
-		<section id="o-mnie">
-			<div class="container" data-aos="fade-up">
-				<h2 class="text-center">O mnie</h2>
-				<div class="row justify-content-center">
-					<div class="col-md-8 about-text text-center">
-						<p>
-							Nazywam się Jan Kowalski i jestem certyfikowanym
-							psychoterapeutą z ponad 10-letnim doświadczeniem w
-							pracy z osobami w kryzysie. Moją misją jest
-							wspieranie ludzi w odnajdywaniu spokoju, sensu i
-							równowagi w życiu.
-						</p>
-						<p>
-							Ukończyłem studia psychologiczne na Uniwersytecie
-							Warszawskim oraz czteroletnie szkolenie z
-							psychoterapii integracyjnej. Pracuję z osobami
-							dorosłymi i młodzieżą, pomagając w takich
-							trudnościach jak depresja, lęk, wypalenie zawodowe
-							czy problemy w relacjach.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
+    <!-- Sekcja "O mnie" -->
+    <section id="o-mnie" style="scroll-margin-top: 80px">
+      <div class="container" data-aos="fade-up">
+        <h2 class="text-center">O mnie</h2>
 
-		<!-- Usługi -->
-		<section id="uslugi" class="py-5 bg-white">
-			<div class="container">
-				<h2 class="text-center mb-5">W czym pomagam?</h2>
-				<div class="row py-2 g-4">
-					<div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
-						<div class="card h-100 border-0 shadow-md service-card">
-							<img
-								src="ti.jpg"
-								class="card-img-top"
-								alt="Terapia indywidualna"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Terapia indywidualna</h5>
-								<p class="card-text">
-									Pomagamy zrozumieć siebie i lepiej radzić
-									sobie z emocjami.
-								</p>
-							</div>
-						</div>
-					</div>
+        <div
+          class="col-md-12 about-text text-center mx-auto"
+          style="position: relative"
+        >
+          <!-- Obrazek opływany przez tekst -->
+          <img
+            src="./rsc/moje1.jpg"
+            alt="Patrycja Wojciechowska-Wachuła"
+            style="
+              float: left;
+              width: 250px;
+              margin: 0 20px 20px 0;
+              border-radius: 8px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            "
+          />
 
-					<div
-						class="col-md-4"
-						data-aos="fade-up"
-						data-aos-delay="100"
-					>
-						<div class="card h-100 border-0 shadow-md service-card">
-							<img
-								src="tp.jpg"
-								class="card-img-top"
-								alt="Terapia par"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Terapia par</h5>
-								<p class="card-text">
-									Wsparcie w budowaniu zdrowych relacji i
-									komunikacji.
-								</p>
-							</div>
-						</div>
-					</div>
+          <p>
+            Nazywam się Patrycja Wojciechowska-Wachuła — jestem psychologiem
+            oraz pedagogiem społecznym. W pracy psychologicznej towarzyszę
+            zarówno dorosłym, jak i młodzieży od 13 roku życia. Wiem, jak ważne
+            jest, aby młodzi ludzie mieli przestrzeń, w której mogą mówić o
+            swoich emocjach bez obaw o ocenę. Staram się, by każde spotkanie
+            było bezpiecznym miejscem rozmowy, zrozumienia i budowania poczucia
+            własnej wartości.
+          </p>
 
-					<div
-						class="col-md-4"
-						data-aos="fade-up"
-						data-aos-delay="200"
-					>
-						<div class="card h-100 border-0 shadow-md service-card">
-							<img
-								src="td.png"
-								class="card-img-top"
-								alt="Terapia dzieci i młodzieży"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Dzieci i młodzież</h5>
-								<p class="card-text">
-									Bezpieczna przestrzeń dla młodych w trudnych
-									chwilach.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+          <p>
+            Ukończyłam studia magisterskie na kierunku psychologia kliniczna i
+            osobowości oraz neuropsychologia w Wyższej Szkole Biznesu –
+            National-Louis University w Nowym Sączu. Doświadczenie zdobywałam
+            m.in. w Wojewódzkim Zespole Lecznictwa Psychiatrycznego w Olsztynie,
+            gdzie obserwowałam i wspierałam osoby zmagające się z różnymi
+            problemami emocjonalnymi i psychicznymi.
+          </p>
 
-		<!--Salon-->
-		<section id="salon" class="py-5 bg-white">
-			<div class="container">
-				<h2 class="text-center mb-5">Mój Salon</h2>
+          <p>
+            W pracy kieruję się empatią, autentycznością i zrozumieniem. Wierzę,
+            że każda rozmowa może być początkiem zmiany – niezależnie od wieku.
+            Od wielu lat wspieram osoby znajdujące się w trudnych sytuacjach
+            życiowych i zawodowych. Szczególnie bliskie są mi tematy
+            neuroróżnorodności, dobrostanu psychicznego, samoświadomości i
+            rozwoju osobistego. Nieustannie rozwijam swoje kompetencje,
+            uczestnicząc m.in. w szkoleniach z zakresu terapii skoncentrowanej
+            na rozwiązaniach, diagnozy ADHD i psychoterapii psychoanalitycznej.
+          </p>
+        </div>
+      </div>
+    </section>
 
-				<div
-					id="salonCarousel"
-					class="carousel slide"
-					data-bs-ride="carousel"
-				>
-					<div class="carousel-inner rounded shadow">
-						<div class="carousel-item active">
-							<img
-								src="salon1.jpg"
-								class="d-block w-100"
-								alt="Salon zdjęcie 1"
-							/>
-						</div>
+    <!-- Oferta 
+    <section id="uslugi" class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center mb-5">W czym pomagam?</h2>
+        <div class="row py-2 g-4">
+           
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="card h-100 border-0 shadow-md service-card">
+              <img
+                src="./rsc/ti.jpg"
+                class="card-img-top"
+                alt="Konsultacja psychologiczna"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Konsultacja psychologiczna</h5>
+                <p>
+                  Konsultacja psychologiczna to pierwsze spotkanie, które
+                  pozwala lepiej zrozumieć Twoją sytuację i potrzeby. To
+                  bezpieczna rozmowa, podczas której wspólnie ustalamy, jaka
+                  forma wsparcia będzie dla Ciebie najlepsza.
+                </p>
+                <div class="collapse" id="collapseK1">
+                  <p>
+                    Konsultacja psychologiczna to pierwsze spotkanie z
+                    psychologiem, które ma charakter rozmowy — spokojnej, bez
+                    ocen i pośpiechu. Jej celem jest lepsze zrozumienie
+                    trudności, z którymi przychodzi klient, określenie jego
+                    potrzeb i oczekiwań oraz wspólne ustalenie dalszych kroków.
+                    Czasem już sama rozmowa przynosi ulgę i pozwala spojrzeć na
+                    problem z innej perspektywy. Podczas konsultacji
+                    psychologicznej:  omawiamy aktualną sytuację, emocje i
+                    doświadczenia,  określamy źródło napięcia, trudności lub
+                    kryzysu,  analizujemy, jakie czynniki mogą wpływać na
+                    samopoczucie,  wspólnie zastanawiamy się, jaka forma pomocy
+                    będzie najbardziej odpowiednia — wsparcie psychologiczne,
+                    diagnoza lub terapia. Konsultacja psychologiczna może być
+                    jednorazowym spotkaniem (np. w sytuacji życiowego kryzysu
+                    lub potrzeby rozmowy) albo pierwszym krokiem do dłuższej
+                    współpracy. To moment, w którym masz przestrzeń, by
+                    opowiedzieć swoją historię — we własnym tempie, w
+                    bezpiecznej i poufnej atmosferze. Każda zmiana zaczyna się
+                    od rozmowy — konsultacja to pierwszy krok ku lepszemu
+                    zrozumieniu siebie i odzyskaniu równowagi.
+                  </p>
+                </div>
+                <a
+                  class="btn btn-link mt-auto p-0"
+                  data-bs-toggle="collapse"
+                  href="#collapseK1"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseK1"
+                >
+                  Zobacz więcej
+                </a>
+              </div>
+            </div>
+          </div>
 
-						<div class="carousel-item">
-							<img
-								src="salon2.jpg"
-								class="d-block w-100"
-								alt="Salon zdjęcie 2"
-							/>
-						</div>
+          
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 border-0 shadow-md service-card">
+              <img
+                src="./rsc/tp.jpg"
+                class="card-img-top"
+                alt="Wsparcie dla dorosłych"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">
+                  Wsparcie psychologiczne dla osób dorosłych
+                </h5>
+                <p>
+                  Pomagam dorosłym w radzeniu sobie ze stresem, wypaleniem i
+                  emocjonalnym przeciążeniem. Tworzę bezpieczną przestrzeń do
+                  rozmowy, refleksji i odzyskiwania równowagi.
+                </p>
+                <div class="collapse" id="collapseK2">
+                  <p>
+                    Codzienność potrafi być wymagająca. Natłok obowiązków,
+                    presja, stres i tempo życia sprawiają, że coraz więcej osób
+                    dorosłych doświadcza zmęczenia psychicznego, przeciążenia
+                    emocjonalnego lub poczucia utraty sensu. Z czasem może
+                    pojawiać się zniechęcenie, lęk, trudności w relacjach czy
+                    spadek motywacji. W takich momentach warto dać sobie prawo
+                    do zatrzymania się i poszukania wsparcia. Oferuję
+                    indywidualne wsparcie psychologiczne dla dorosłych, które
+                    pomaga:  lepiej rozumieć siebie, swoje emocje i potrzeby, 
+                    radzić sobie z trudnościami w relacjach, stresem lub
+                    wypaleniem zawodowym,  odzyskać równowagę emocjonalną i
+                    poczucie wpływu,  pracować nad samooceną, pewnością siebie
+                    i granicami,  poradzić sobie z kryzysem życiowym, zmianą
+                    lub stratą. Spotkania mają formę rozmowy — bez pośpiechu, w
+                    atmosferze zrozumienia i akceptacji. Nie oceniam i nie
+                    narzucam rozwiązań; towarzyszę w procesie poszukiwania
+                    odpowiedzi i zasobów, które pomogą Ci odnaleźć własną drogę
+                    do równowagi. W pracy korzystam z podejścia integracyjnego,
+                    opierając się na współczesnych nurtach psychologii
+                    klinicznej i psychoedukacji. Każde spotkanie jest
+                    dostosowane do indywidualnych potrzeb, celu i tempa pracy
+                    danej osoby. Nie musisz radzić sobie sam. Wsparcie
+                    psychologiczne to nie oznaka słabości, lecz odwagi — chęci
+                    zrozumienia siebie i wprowadzenia zmiany.
+                  </p>
+                </div>
+                <a
+                  class="btn btn-link mt-auto p-0"
+                  data-bs-toggle="collapse"
+                  href="#collapseK2"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseK2"
+                >
+                  Zobacz więcej
+                </a>
+              </div>
+            </div>
+          </div>
 
-						<div class="carousel-item">
-							<img
-								src="salon3.jpg"
-								class="d-block w-100"
-								alt="Salon zdjęcie 3"
-							/>
-						</div>
+          
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 border-0 shadow-md service-card">
+              <img
+                src="./rsc/td.png"
+                class="card-img-top"
+                alt="Wsparcie dla młodzieży"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">
+                  Wsparcie psychologiczne dla młodzieży (13+)
+                </h5>
+                <p>
+                  Dorastanie to czas intensywnych zmian – emocjonalnych,
+                  społecznych i tożsamościowych. Młodzi ludzie często
+                  doświadczają wtedy silnych emocji, stresu szkolnego, trudności
+                  w relacjach czy poczucia zagubienia.
+                </p>
+                <div class="collapse" id="collapseK3">
+                  <p>
+                    Oferuję wsparcie psychologiczne dla młodzieży od 13 roku
+                    życia, które obejmuje:  rozmowy wspierające i
+                    psychoedukację,  pomoc w radzeniu sobie z emocjami, stresem
+                    i lękiem,  wsparcie w budowaniu poczucia własnej wartości,
+                     pomoc w relacjach rówieśniczych i rodzinnych,  wsparcie w
+                    sytuacjach kryzysowych (np. zmiana szkoły, problemy
+                    emocjonalne, presja otoczenia). Pracuję w atmosferze
+                    zaufania, zrozumienia i akceptacji, dostosowując tempo oraz
+                    formę pracy do potrzeb młodej osoby. W razie potrzeby
+                    współpracuję również z rodzicami lub opiekunami, pomagając
+                    im lepiej zrozumieć trudności dziecka.
+                  </p>
+                </div>
+                <a
+                  class="btn btn-link mt-auto p-0"
+                  data-bs-toggle="collapse"
+                  href="#collapseK3"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseK3"
+                >
+                  Zobacz więcej
+                </a>
+              </div>
+            </div>
+          </div>
 
-						<!-- Dodaj kolejne zdjęcia w podobny sposób -->
-					</div>
+          
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 border-0 shadow-md service-card">
+              <img
+                src="./rsc/td.png"
+                class="card-img-top"
+                alt="Wsparcie dla rodziców"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Wsparcie dla rodziców nastolatków</h5>
+                <p>
+                  Pomagam rodzicom nastolatków zrozumieć emocje swoich dzieci,
+                  lepiej się z nimi komunikować i odnaleźć spokój w relacji
+                  rodzinnej. Wspólnie szukamy sposobów,
+                </p>
+                <div class="collapse" id="collapseK4">
+                  <p>
+                    Okres dorastania dla wielu rodziców nastolatków staje się on
+                    wyzwaniem, pełnym niepewności i pytań o to, jak wspierać
+                    swoje dziecko, które często zamyka się w sobie, buntuje lub
+                    zmienia się z dnia na dzień. Jako psycholog pracujący z
+                    młodzieżą i rodzinami, oferuję wsparcie psychologiczne dla
+                    rodziców nastolatków, którzy:  chcą lepiej zrozumieć emocje
+                    i zachowania swojego dziecka,  doświadczają trudności w
+                    komunikacji,  nie wiedzą, jak reagować na bunt, izolowanie
+                    się lub spadek motywacji dziecka,  czują się bezradni,
+                    zmęczeni lub przeciążeni emocjonalnie. Podczas spotkań
+                    pomagam rodzicom:  zrozumieć potrzeby emocjonalne
+                    nastolatka,  budować relację opartą na zaufaniu, akceptacji
+                    i szacunku,  uczyć się skutecznej komunikacji i wyznaczania
+                    granic,  zadbać o siebie – o własne emocje, energię i
+                    poczucie kompetencji rodzicielskich. W pracy z rodzicami
+                    kieruję się przekonaniem, że najlepszym wsparciem dla
+                    dziecka jest spokojny, świadomy i uważny dorosły. Spotkania
+                    mają charakter rozmowy i psychoedukacji – pomagają spojrzeć
+                    na sytuację z innej perspektywy i znaleźć rozwiązania
+                    dopasowane do konkretnej rodziny. Nie ma idealnych rodziców
+                    – są tylko ci, którzy próbują zrozumieć i być blisko swojego
+                    dziecka
+                  </p>
+                </div>
+                <a
+                  class="btn btn-link mt-auto p-0"
+                  data-bs-toggle="collapse"
+                  href="#collapseK4"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseK4"
+                >
+                  Zobacz więcej
+                </a>
+              </div>
+            </div>
+          </div>
 
-					<button
-						class="carousel-control-prev"
-						type="button"
-						data-bs-target="#salonCarousel"
-						data-bs-slide="prev"
-					>
-						<span
-							class="carousel-control-prev-icon"
-							aria-hidden="true"
-						></span>
-						<span class="visually-hidden">Poprzednie</span>
-					</button>
+          
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 border-0 shadow-md service-card">
+              <img
+                src="./rsc/ti.jpg"
+                class="card-img-top"
+                alt="Diagnoza psychologiczna"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">
+                  Diagnoza psychologiczna i neuropsychologiczna
+                </h5>
+                <p>
+                  Prowadzę diagnozę psychologiczną i neuropsychologiczną
+                  obejmującą ocenę emocji, osobowości i funkcji poznawczych.
+                  Pomagam zrozumieć źródło trudności oraz wskazuję dalsze
+                  kierunki wsparcia i rozwoju.
+                </p>
+                <div class="collapse" id="collapseK5">
+                  <p>
+                    Diagnoza psychologiczna Diagnoza psychologiczna to proces,
+                    który pozwala lepiej zrozumieć funkcjonowanie emocjonalne,
+                    poznawcze i społeczne człowieka. To nie tylko testy i wyniki
+                    – to także rozmowa, obserwacja i wspólne poszukiwanie
+                    przyczyn trudności, z którymi dana osoba się mierzy. Celem
+                    diagnozy jest uzyskanie pełniejszego obrazu sposobu
+                    myślenia, odczuwania i reagowania, a także wskazanie
+                    obszarów, które wymagają wsparcia lub dalszej pracy.
+                    Diagnoza psychologiczna obejmuje:  ocenę funkcjonowania
+                    emocjonalnego i osobowościowego,  diagnozę trudności
+                    emocjonalnych, lęku, depresji, stresu,  ocenę dojrzałości
+                    emocjonalnej i społecznej,  badanie mechanizmów radzenia
+                    sobie ze stresem i obciążeniem psychicznym,  konsultację w
+                    zakresie wypalenia zawodowego oraz obniżonej motywacji. W
+                    pracy diagnostycznej wykorzystuję zweryfikowane narzędzia
+                    psychometryczne, takie jak m.in. CISS, MBI, LBQ,
+                    Kwestionariusze osobowości czy skale samooceny i
+                    funkcjonowania emocjonalnego – zawsze dostosowane do
+                    indywidualnych potrzeb osoby badanej. Diagnoza
+                    neuropsychologiczna Diagnoza neuropsychologiczna pozwala
+                    ocenić funkcjonowanie poznawcze, czyli m.in. pamięć, uwagę,
+                    koncentrację, język, funkcje wykonawcze i tempo
+                    przetwarzania informacji. Jest szczególnie przydatna w
+                    przypadku:  trudności z pamięcią i koncentracją, 
+                    problemów poznawczych po urazach głowy lub chorobach
+                    neurologicznych,  wczesnych objawów otępienia,  zaburzeń
+                    uwagi (w tym podejrzenia ADHD u dorosłych),  obniżonej
+                    wydolności poznawczej związanej ze stresem lub
+                    przemęczeniem. Podczas diagnozy wykorzystuję m.in. testy
+                    przesiewowe i poznawcze, takie jak ACE-III (Addenbrooke’s
+                    Cognitive Examination) oraz inne narzędzia oceniające
+                    poszczególne funkcje poznawcze. Wyniki diagnozy pozwalają
+                    opracować indywidualne zalecenia — zarówno terapeutyczne,
+                    jak i wspierające codzienne funkcjonowanie.
+                  </p>
+                </div>
+                <a
+                  class="btn btn-link mt-auto p-0"
+                  data-bs-toggle="collapse"
+                  href="#collapseK5"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="collapseK5"
+                >
+                  Zobacz więcej
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>-->
 
-					<button
-						class="carousel-control-next"
-						type="button"
-						data-bs-target="#salonCarousel"
-						data-bs-slide="next"
-					>
-						<span
-							class="carousel-control-next-icon"
-							aria-hidden="true"
-						></span>
-						<span class="visually-hidden">Następne</span>
-					</button>
-				</div>
-			</div>
-		</section>
+    <section id="uslugi" class="py-5 bg-white" style="scroll-margin-top: 80px">
+      <div class="container">
+        <h2 class="text-center mb-5">W czym pomagam?</h2>
 
-		<section id="kontakt" class="py-5">
-			<div class="container">
-				<h2 class="text-center mb-5">Kontakt</h2>
-				<div class="row g-4">
-					<!-- DANE KONTAKTOWE -->
-					<div class="col-md-6 kontakt-info">
-						<p class="mb-2">
-							<strong>Poradnia Psychologiczna</strong><br />
-							ul. Przykładowa 15<br />
-							00-000 Warszawa
-						</p>
-						<p class="mb-2">
-							<strong>Telefon:</strong>
-							<a href="tel:+48123456789">123 456 789</a><br />
-							<strong>Email:</strong>
-							<a href="mailto:kontakt@costam.pl"
-								>kontakt@costam.pl</a
-							>
-						</p>
-						<p>
-							<strong>Godziny otwarcia:</strong><br />
-							Pon–Pt: 9:00 – 19:00<br />
-							Sobota: 10:00 – 14:00
-						</p>
-					</div>
+        <div class="accordion" id="accordionUsługi">
+          <!-- Usługa 1 -->
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button collapsed d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+                style="gap: 15px"
+              >
+                <img
+                  src="./rsc/ti.jpg"
+                  alt="Konsultacja psychologiczna"
+                  width="60"
+                  height="60"
+                  style="object-fit: cover; border-radius: 8px"
+                />
+                <div>
+                  <strong>Konsultacja psychologiczna</strong><br />
+                  <small
+                    >Konsultacja psychologiczna to pierwsze spotkanie, które
+                    pozwala lepiej zrozumieć Twoją sytuację i potrzeby. To
+                    bezpieczna rozmowa, podczas której wspólnie ustalamy, jaka
+                    forma wsparcia będzie dla Ciebie najlepsza.</small
+                  >
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionUsługi"
+            >
+              <div class="accordion-body">
+                <p>
+                  Konsultacja psychologiczna to pierwsze spotkanie z
+                  psychologiem, które ma charakter rozmowy — spokojnej, bez ocen
+                  i pośpiechu. Jej celem jest lepsze zrozumienie trudności, z
+                  którymi przychodzi klient, określenie jego potrzeb i oczekiwań
+                  oraz wspólne ustalenie dalszych kroków. Czasem już sama
+                  rozmowa przynosi ulgę i pozwala spojrzeć na problem z innej
+                  perspektywy. Podczas konsultacji psychologicznej:  omawiamy
+                  aktualną sytuację, emocje i doświadczenia,  określamy źródło
+                  napięcia, trudności lub kryzysu,  analizujemy, jakie czynniki
+                  mogą wpływać na samopoczucie,  wspólnie zastanawiamy się,
+                  jaka forma pomocy będzie najbardziej odpowiednia — wsparcie
+                  psychologiczne, diagnoza lub terapia. Konsultacja
+                  psychologiczna może być jednorazowym spotkaniem (np. w
+                  sytuacji życiowego kryzysu lub potrzeby rozmowy) albo
+                  pierwszym krokiem do dłuższej współpracy. To moment, w którym
+                  masz przestrzeń, by opowiedzieć swoją historię — we własnym
+                  tempie, w bezpiecznej i poufnej atmosferze. Każda zmiana
+                  zaczyna się od rozmowy — konsultacja to pierwszy krok ku
+                  lepszemu zrozumieniu siebie i odzyskaniu równowagi.
+                </p>
+              </div>
+            </div>
+          </div>
 
-					<!-- MAPA GOOGLE -->
-					<div class="col-md-6">
-						<div class="ratio ratio-4x3 rounded shadow">
-							<iframe
-								src="https://www.google.com/maps?q=Wysoka%20Brama,%20Olsztyn&output=embed"
-								allowfullscreen
-								loading="lazy"
-							>
-							</iframe>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<footer class="bg-dark text-light py-4 mt-5">
-			<div
-				class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
-			>
-				<!-- Logo -->
-				<div class="mb-3 mb-md-0">
-					<img
-						src="logo.png"
-						alt="Logo Poradni"
-						style="height: 40px"
-					/>
-				</div>
+          <!-- Usługa 2 -->
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+                style="gap: 15px"
+              >
+                <img
+                  src="./rsc/tp.jpg"
+                  alt="Wsparcie psychologiczne dla dorosłych"
+                  width="60"
+                  height="60"
+                  style="object-fit: cover; border-radius: 8px"
+                />
+                <div>
+                  <strong>Wsparcie psychologiczne dla osób dorosłych</strong
+                  ><br />
+                  <small
+                    >Pomagam dorosłym w radzeniu sobie ze stresem, wypaleniem i
+                    emocjonalnym przeciążeniem. Tworzę bezpieczną przestrzeń do
+                    rozmowy, refleksji i odzyskiwania równowagi.</small
+                  >
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionUsługi"
+            >
+              <div class="accordion-body">
+                <p>
+                  Codzienność potrafi być wymagająca. Natłok obowiązków, presja,
+                  stres i tempo życia sprawiają, że coraz więcej osób dorosłych
+                  doświadcza zmęczenia psychicznego, przeciążenia emocjonalnego
+                  lub poczucia utraty sensu. Z czasem może pojawiać się
+                  zniechęcenie, lęk, trudności w relacjach czy spadek motywacji.
+                  W takich momentach warto dać sobie prawo do zatrzymania się i
+                  poszukania wsparcia. Oferuję indywidualne wsparcie
+                  psychologiczne dla dorosłych, które pomaga:  lepiej rozumieć
+                  siebie, swoje emocje i potrzeby,  radzić sobie z trudnościami
+                  w relacjach, stresem lub wypaleniem zawodowym,  odzyskać
+                  równowagę emocjonalną i poczucie wpływu,  pracować nad
+                  samooceną, pewnością siebie i granicami,  poradzić sobie z
+                  kryzysem życiowym, zmianą lub stratą. Spotkania mają formę
+                  rozmowy — bez pośpiechu, w atmosferze zrozumienia i
+                  akceptacji. Nie oceniam i nie narzucam rozwiązań; towarzyszę w
+                  procesie poszukiwania odpowiedzi i zasobów, które pomogą Ci
+                  odnaleźć własną drogę do równowagi. W pracy korzystam z
+                  podejścia integracyjnego, opierając się na współczesnych
+                  nurtach psychologii klinicznej i psychoedukacji. Każde
+                  spotkanie jest dostosowane do indywidualnych potrzeb, celu i
+                  tempa pracy danej osoby. Nie musisz radzić sobie sam. Wsparcie
+                  psychologiczne to nie oznaka słabości, lecz odwagi — chęci
+                  zrozumienia siebie i wprowadzenia zmiany.
+                </p>
+              </div>
+            </div>
+          </div>
 
-				<!-- Tekst -->
-				<div class="text-center text-md-end small">
-					&copy; 2025 Poradnia Psychologiczna. Wszelkie prawa
-					zastrzeżone.<br />
-					Website created by Jan Kowalski
-				</div>
-			</div>
-		</footer>
+          <!-- Usługa 3 -->
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+                style="gap: 15px"
+              >
+                <img
+                  src="./rsc/tp.jpg"
+                  alt="Wsparcie psychologiczne dla młodzieży"
+                  width="60"
+                  height="60"
+                  style="object-fit: cover; border-radius: 8px"
+                />
+                <div>
+                  <strong>Wsparcie psychologiczne dla młodzieży (13+)</strong
+                  ><br />
+                  <small
+                    >Dorastanie to czas intensywnych zmian – emocjonalnych,
+                    społecznych i tożsamościowych. Młodzi ludzie często
+                    doświadczają wtedy silnych emocji, stresu szkolnego,
+                    trudności w relacjach czy poczucia zagubienia.</small
+                  >
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionUsługi"
+            >
+              <div class="accordion-body">
+                <p>
+                  Oferuję wsparcie psychologiczne dla młodzieży od 13 roku
+                  życia, które obejmuje:  rozmowy wspierające i psychoedukację,
+                   pomoc w radzeniu sobie z emocjami, stresem i lękiem, 
+                  wsparcie w budowaniu poczucia własnej wartości,  pomoc w
+                  relacjach rówieśniczych i rodzinnych,  wsparcie w sytuacjach
+                  kryzysowych (np. zmiana szkoły, problemy emocjonalne, presja
+                  otoczenia). Pracuję w atmosferze zaufania, zrozumienia i
+                  akceptacji, dostosowując tempo oraz formę pracy do potrzeb
+                  młodej osoby. W razie potrzeby współpracuję również z
+                  rodzicami lub opiekunami, pomagając im lepiej zrozumieć
+                  trudności dziecka.
+                </p>
+              </div>
+            </div>
+          </div>
 
-		<!-- JS: Bootstrap & AOS -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-		<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-		<script>
-			AOS.init({
-				duration: 1000,
-				once: true,
-			});
-		</script>
-		<script src="./script.js"></script>
-	</body>
+          <!-- Usługa 4 -->
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingFour">
+              <button
+                class="accordion-button collapsed d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+                style="gap: 15px"
+              >
+                <img
+                  src="./rsc/ti.jpg"
+                  alt="Wsparcie dla rodziców nastolatków"
+                  width="60"
+                  height="60"
+                  style="object-fit: cover; border-radius: 8px"
+                />
+                <div>
+                  <strong>Wsparcie dla rodziców nastolatków</strong><br />
+                  <small
+                    >Pomagam rodzicom nastolatków zrozumieć emocje swoich
+                    dzieci, lepiej się z nimi komunikować i odnaleźć spokój w
+                    relacji rodzinnej. Wspólnie szukamy sposobów, by budować
+                    zaufanie, granice i bliskość w codziennych
+                    sytuacjach.</small
+                  >
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#accordionUsługi"
+            >
+              <div class="accordion-body">
+                <p>
+                  Okres dorastania dla wielu rodziców nastolatków staje się on
+                  wyzwaniem, pełnym niepewności i pytań o to, jak wspierać swoje
+                  dziecko, które często zamyka się w sobie, buntuje lub zmienia
+                  się z dnia na dzień. Jako psycholog pracujący z młodzieżą i
+                  rodzinami, oferuję wsparcie psychologiczne dla rodziców
+                  nastolatków, którzy:  chcą lepiej zrozumieć emocje i
+                  zachowania swojego dziecka,  doświadczają trudności w
+                  komunikacji,  nie wiedzą, jak reagować na bunt, izolowanie
+                  się lub spadek motywacji dziecka,  czują się bezradni,
+                  zmęczeni lub przeciążeni emocjonalnie. Podczas spotkań pomagam
+                  rodzicom:  zrozumieć potrzeby emocjonalne nastolatka, 
+                  budować relację opartą na zaufaniu, akceptacji i szacunku, 
+                  uczyć się skutecznej komunikacji i wyznaczania granic, 
+                  zadbać o siebie – o własne emocje, energię i poczucie
+                  kompetencji rodzicielskich. W pracy z rodzicami kieruję się
+                  przekonaniem, że najlepszym wsparciem dla dziecka jest
+                  spokojny, świadomy i uważny dorosły. Spotkania mają charakter
+                  rozmowy i psychoedukacji – pomagają spojrzeć na sytuację z
+                  innej perspektywy i znaleźć rozwiązania dopasowane do
+                  konkretnej rodziny. Nie ma idealnych rodziców – są tylko ci,
+                  którzy próbują zrozumieć i być blisko swojego dziecka
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Usługa 5 -->
+          <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingFive">
+              <button
+                class="accordion-button collapsed d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFive"
+                aria-expanded="false"
+                aria-controls="collapseFive"
+                style="gap: 15px"
+              >
+                <img
+                  src="./rsc/td.png"
+                  alt="Diagnoza psychologiczna i neuropsychologiczna"
+                  width="60"
+                  height="60"
+                  style="object-fit: cover; border-radius: 8px"
+                />
+                <div>
+                  <strong>Diagnoza psychologiczna i neuropsychologiczna</strong
+                  ><br />
+                  <small
+                    >Prowadzę diagnozę psychologiczną i neuropsychologiczną
+                    obejmującą ocenę emocji, osobowości i funkcji poznawczych.
+                    Pomagam zrozumieć źródło trudności oraz wskazuję dalsze
+                    kierunki wsparcia i rozwoju.</small
+                  >
+                </div>
+              </button>
+            </h2>
+            <div
+              id="collapseFive"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFive"
+              data-bs-parent="#accordionUsługi"
+            >
+              <div class="accordion-body">
+                <p>
+                  Diagnoza psychologiczna Diagnoza psychologiczna to proces,
+                  który pozwala lepiej zrozumieć funkcjonowanie emocjonalne,
+                  poznawcze i społeczne człowieka. To nie tylko testy i wyniki –
+                  to także rozmowa, obserwacja i wspólne poszukiwanie przyczyn
+                  trudności, z którymi dana osoba się mierzy. Celem diagnozy
+                  jest uzyskanie pełniejszego obrazu sposobu myślenia,
+                  odczuwania i reagowania, a także wskazanie obszarów, które
+                  wymagają wsparcia lub dalszej pracy. Diagnoza psychologiczna
+                  obejmuje:  ocenę funkcjonowania emocjonalnego i
+                  osobowościowego,  diagnozę trudności emocjonalnych, lęku,
+                  depresji, stresu,  ocenę dojrzałości emocjonalnej i
+                  społecznej,  badanie mechanizmów radzenia sobie ze stresem i
+                  obciążeniem psychicznym,  konsultację w zakresie wypalenia
+                  zawodowego oraz obniżonej motywacji. W pracy diagnostycznej
+                  wykorzystuję zweryfikowane narzędzia psychometryczne, takie
+                  jak m.in. CISS, MBI, LBQ, Kwestionariusze osobowości czy skale
+                  samooceny i funkcjonowania emocjonalnego – zawsze dostosowane
+                  do indywidualnych potrzeb osoby badanej. Diagnoza
+                  neuropsychologiczna Diagnoza neuropsychologiczna pozwala
+                  ocenić funkcjonowanie poznawcze, czyli m.in. pamięć, uwagę,
+                  koncentrację, język, funkcje wykonawcze i tempo przetwarzania
+                  informacji. Jest szczególnie przydatna w przypadku: 
+                  trudności z pamięcią i koncentracją,  problemów poznawczych
+                  po urazach głowy lub chorobach neurologicznych,  wczesnych
+                  objawów otępienia,  zaburzeń uwagi (w tym podejrzenia ADHD u
+                  dorosłych),  obniżonej wydolności poznawczej związanej ze
+                  stresem lub przemęczeniem. Podczas diagnozy wykorzystuję m.in.
+                  testy przesiewowe i poznawcze, takie jak ACE-III
+                  (Addenbrooke’s Cognitive Examination) oraz inne narzędzia
+                  oceniające poszczególne funkcje poznawcze. Wyniki diagnozy
+                  pozwalają opracować indywidualne zalecenia — zarówno
+                  terapeutyczne, jak i wspierające codzienne funkcjonowanie.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Salon-->
+    <section id="salon" class="py-5 bg-white" style="scroll-margin-top: 80px">
+      <div class="container">
+        <h2 class="text-center mb-5">Mój Salon</h2>
+
+        <div id="salonCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner rounded shadow">
+            <div class="carousel-item active">
+              <img
+                src="./rsc/salon1.jpg"
+                class="d-block w-100"
+                alt="Salon zdjęcie 1"
+              />
+            </div>
+
+            <div class="carousel-item">
+              <img
+                src="./rsc/salon2.jpg"
+                class="d-block w-100"
+                alt="Salon zdjęcie 2"
+              />
+            </div>
+
+            <div class="carousel-item">
+              <img
+                src="./rsc/salon3.jpg"
+                class="d-block w-100"
+                alt="Salon zdjęcie 3"
+              />
+            </div>
+
+            <!-- Dodaj kolejne zdjęcia w podobny sposób -->
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#salonCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Poprzednie</span>
+          </button>
+
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#salonCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Następne</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="py-5" style="scroll-margin-top: 80px">
+      <div class="container">
+        <h2 class="text-center mb-5">Kontakt</h2>
+        <div class="row g-4">
+          <!-- DANE KONTAKTOWE -->
+          <div
+            class="col-md-6 kontakt-info d-flex flex-column justify-content-between"
+          >
+            <div>
+              <p class="mb-3">
+                <strong>Patrycja Wojciechowska-Wachuła</strong><br />
+                Olsztyn<br />
+                ul. Wyszyńskiego 5b<br />
+                Pokój 214 (II piętro)
+              </p>
+              <p class="mb-3">
+                <strong>Telefon:</strong>
+                <a href="tel:+48503685327">503 685 327</a><br />
+                <strong>Email:</strong>
+                <a href="mailto:kontakt@psychologiazsercem.pl"
+                  >kontakt@psychologiazsercem.pl</a
+                >
+              </p>
+              <p>nr konta do przelewu: 85 1160 2202 0000 0000 5584 4308</p>
+            </div>
+          </div>
+
+          <!-- MAPA GOOGLE -->
+          <div class="col-md-6">
+            <div class="ratio ratio-4x3 rounded shadow">
+              <iframe
+                src="https://www.google.com/maps?q=Wyszyńskiego%205b,%20Olsztyn&output=embed"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
+      >
+        <!-- Logo -->
+        <div class="mb-3 mb-md-0">
+          <img
+            src="./icons/logo_icon_big.png"
+            alt="Logo Poradni"
+            style="height: 40px"
+          />
+        </div>
+
+        <!-- Tekst -->
+        <div class="text-center text-md-end small">
+          &copy; 2025 Patrycja Wojciechowska-Wachuła<br />
+          Website created by
+          <a href="https://github.com/Mistrzcpp" target="_blank"
+            >Wojciech Krzyżanowski</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS: Bootstrap & AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
+    <script src="./script.js"></script>
+  </body>
 </html>
