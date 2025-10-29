@@ -1,0 +1,223 @@
+body {
+  font-family: "Lato";
+}
+
+/* Stylizacja nagłówka */
+.navbar-custom {
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  font-size: larger;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+  font-size: 1.2rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  letter-spacing: 0.5px !important;
+  color: white !important;
+}
+.navbar-title {
+  font-size: clamp(0.5em, 10vw, 1em) !important;
+  margin: 0 !important;
+  font-weight: normal !important;
+}
+
+/* Błękitny gradient w hero */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(0deg, #89f7fe 0%, #66a6ff 80%);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-text {
+  font-size: 2.2rem; /* wcześniej 2.5rem */
+  font-weight: 700;
+  line-height: 1.4;
+  color: white;
+  max-width: 700px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-text .btn {
+  margin-top: 1.5rem;
+}
+
+.hero-text-background {
+  background-color: white;
+  padding: 30px;
+  color: #212529;
+}
+
+/* Sekcja "O mnie" */
+#o-mnie {
+  padding: 80px 20px;
+  background-color: white;
+}
+
+.o-mnie-text,
+.about-text {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+#o-mnie h2 {
+  margin-bottom: 30px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.row {
+  overflow: hidden;
+}
+
+.service-card {
+  min-height: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  border: 1px solid black !important;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.kontakt-info {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.btn-elegant {
+  background-color: #ffffff;
+  color: #212529;
+  border: 1.5px solid #dee2e6;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-elegant:hover {
+  background-color: #f1f3f5;
+  color: #212529;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+#salonCarousel .carousel-item img {
+  max-height: 650px;
+  object-fit: cover;
+  width: 80%;
+}
+
+/* === NAVBAR NA GÓRZE (np. na hero): biały tekst i ramka === */
+.navbar-custom.navbar-top .nav-link,
+.navbar-custom.navbar-top .navbar-brand,
+.navbar-custom.navbar-top .navbar-text a {
+  color: white !important;
+}
+
+.navbar-custom.navbar-top .navbar-text a {
+  border: 2px solid white !important;
+}
+
+/* === NAVBAR PO SCROLLU: ciemny tekst i ramka === */
+.navbar-custom.scrolled .nav-link,
+.navbar-custom.scrolled .navbar-brand,
+.navbar-custom.scrolled .navbar-text a {
+  color: #212529 !important;
+}
+
+.navbar-custom.scrolled .navbar-text a {
+  border: 2px solid #212529 !important;
+}
+
+.card-img-top {
+  border-bottom: 1px solid black !important;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.3em !important;
+}
+
+/* === Numer telefonu: biały tekst + biała ramka na górze strony === */
+.navbar-custom.navbar-top .numer-tel {
+  color: white !important;
+  border: 2px solid white !important;
+}
+
+/* === Numer telefonu: czarny tekst + czarna ramka po scrollu === */
+.navbar-custom.scrolled .numer-tel {
+  color: #212529 !important;
+  border: 2px solid #212529 !important;
+}
+
+/* === Nagłówek: biały na górze strony === */
+.navbar-custom.navbar-top .navbar-title {
+  color: white !important;
+}
+
+/* === Nagłówek: czarny po scrollu === */
+.navbar-custom.scrolled .navbar-title {
+  color: #212529 !important;
+}
+
+@keyframes fadeSlideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animacja dla hero section */
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .img-fluid {
+    max-width: 70%; /* zmniejszony obrazek */
+    margin-top: 10px;
+    margin-bottom: 30px;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    animation: none !important;
+  }
+
+  .hero-text {
+    font-size: 1.8rem;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}

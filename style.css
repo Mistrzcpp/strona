@@ -1,0 +1,175 @@
+.hero-section,
+.hero-text {
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: 1.2s ease-out 0.3s forwards fadeSlideIn;
+}
+body {
+  font-family: Lato;
+}
+.navbar-custom {
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+  font-size: larger;
+}
+.navbar-custom .navbar-nav .nav-link {
+  font-size: 1.2rem !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  letter-spacing: 0.5px !important;
+  color: #fff !important;
+}
+.navbar-title {
+  font-size: clamp(0.5em, 10vw, 1em) !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(0deg, #89f7fe 0, #66a6ff 80%);
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+#o-mnie,
+.btn-elegant,
+.hero-text-background {
+  background-color: #fff;
+}
+.hero-text {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 700px;
+}
+.hero-text .btn {
+  margin-top: 1.5rem;
+}
+.hero-text-background {
+  padding: 30px;
+  color: #212529;
+}
+#o-mnie {
+  padding: 80px 20px;
+}
+.about-text,
+.o-mnie-text {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+#o-mnie h2 {
+  margin-bottom: 30px;
+}
+html {
+  scroll-behavior: smooth;
+}
+.row {
+  overflow: hidden;
+}
+.service-card {
+  min-height: 350px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform-style: preserve-3d;
+  border: 1px solid #000 !important;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.kontakt-info {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.btn-elegant {
+  color: #212529;
+  border: 1.5px solid #dee2e6;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.btn-elegant:hover {
+  background-color: #f1f3f5;
+  color: #212529;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+#salonCarousel .carousel-item img {
+  max-height: 650px;
+  object-fit: cover;
+  width: 80%;
+}
+.navbar-custom.navbar-top .nav-link,
+.navbar-custom.navbar-top .navbar-brand,
+.navbar-custom.navbar-top .navbar-text a,
+.navbar-custom.navbar-top .navbar-title {
+  color: #fff !important;
+}
+.navbar-custom.navbar-top .navbar-text a {
+  border: 2px solid #fff !important;
+}
+.navbar-custom.scrolled .nav-link,
+.navbar-custom.scrolled .navbar-brand,
+.navbar-custom.scrolled .navbar-text a,
+.navbar-custom.scrolled .navbar-title {
+  color: #212529 !important;
+}
+.navbar-custom.scrolled .navbar-text a {
+  border: 2px solid #212529 !important;
+}
+.card-img-top {
+  border-bottom: 1px solid #000 !important;
+}
+.card-body {
+  text-align: center;
+}
+.card-title {
+  font-size: 1.3em !important;
+}
+.navbar-custom.navbar-top .numer-tel {
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+.navbar-custom.scrolled .numer-tel {
+  color: #212529 !important;
+  border: 2px solid #212529 !important;
+}
+@keyframes fadeSlideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 80px;
+    text-align: center;
+  }
+  .img-fluid {
+    max-width: 70%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    animation: none !important;
+  }
+  .hero-text {
+    font-size: 1.8rem;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
